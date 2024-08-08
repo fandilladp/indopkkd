@@ -2,7 +2,7 @@
 const { getRegion, getProvinsi, getKota, getKecamatan, getDesa } = require('../index');
 
 // Test getRegion
-const regionDetails = getRegion('11.01.01.2001');
+const regionDetails = getRegion('1101012001');
 console.log('getRegion("11.01.01.2001"):', regionDetails);
 
 // Test getProvinsi

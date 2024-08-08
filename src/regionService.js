@@ -2,8 +2,17 @@ const parseData = require('./dataParser');
 
 const data = parseData();
 
+function formatRegionCode(regionCode) {
+    if (regionCode.length !== 10) {
+        throw new Error('Invalid region code length. Expected length is 10.');
+    }
+    // Membagi kode menjadi segmen 2, 2, 2, dan sisanya, lalu menggabungkan dengan titik
+    return `${regionCode.slice(0, 2)}.${regionCode.slice(2, 4)}.${regionCode.slice(4, 6)}.${regionCode.slice(6)}`;
+}
+
 function getRegion(regionCode) {
-    const region = data.find(item => item.code === regionCode);
+    const formattedCode = formatRegionCode(regionCode);
+    const region = data.find(item => item.code === formattedCode);
     if (!region) {
         return null;
     }

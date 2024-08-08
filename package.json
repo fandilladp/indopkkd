@@ -1,6 +1,6 @@
 {
   "name": "indopkkd",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Listing kode provinsi, kabupaten, kecamatan, desa indonesia",
   "main": "index.js",
   "scripts": {
