@@ -1,8 +1,9 @@
+// src/dataParser.js
 const fs = require('fs');
 const path = require('path');
 
 function parseData() {
-    const filePath = path.join(__dirname, '..', 'data.txt');
+    const filePath = path.join(__dirname, 'data.txt');  // Updated to match the file location
     const data = fs.readFileSync(filePath, 'utf-8');
     
     const regions = data.split('\n').map(line => {

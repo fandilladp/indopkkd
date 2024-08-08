@@ -1,5 +1,5 @@
-// src/getRegionDetails.js
-const parseData = require('./index');
+const parseData = require('./dataParser');
+
 const data = parseData();
 
 function getRegion(regionCode) {
