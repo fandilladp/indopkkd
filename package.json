@@ -1,0 +1,19 @@
+{
+  "name": "indopkkd",
+  "version": "0.0.1",
+  "description": "Listing kode provinsi, kabupaten, kecamatan, desa indonesia",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fandilladp/indopkkd.git"
+  },
+  "author": "fandilladp",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fandilladp/indopkkd/issues"
+  },
+  "homepage": "https://github.com/fandilladp/indopkkd#readme"
+}
