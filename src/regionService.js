@@ -6,7 +6,6 @@ function formatRegionCode(regionCode) {
   if (regionCode.length !== 10) {
     throw new Error("Invalid region code length. Expected length is 10.");
   }
-  // Membagi kode menjadi segmen 2, 2, 2, dan sisanya, lalu menggabungkan dengan titik
   return `${regionCode.slice(0, 2)}.${regionCode.slice(
     2,
     4
@@ -17,7 +16,6 @@ function getRegion(regionCode) {
   const formattedCode = formatRegionCode(regionCode);
   const region = data.find((item) => item.code === formattedCode);
   if (!region) {
-    // Cek apakah bagian setelah 4 digit pertama adalah 000000
     if (regionCode.slice(4) === "000000") {
       const provinsi = data.find(
         (item) =>
@@ -90,10 +88,45 @@ function getDesa(desaCode) {
     .map((item) => item.name);
 }
 
+// Dropdown list helpers
+function listProvinsi() {
+  return data
+    .filter((item) => item.parts.length === 1)
+    .map((item) => ({ code: item.parts[0], name: item.name }));
+}
+
+function listKota(provinsiCode) {
+  return data
+    .filter(
+      (item) => item.parts.length === 2 && item.parts[0] === provinsiCode
+    )
+    .map((item) => ({ code: item.parts[1], name: item.name }));
+}
+
+function listKecamatan(kotaCode) {
+  return data
+    .filter(
+      (item) => item.parts.length === 3 && item.parts[1] === kotaCode
+    )
+    .map((item) => ({ code: item.parts[2], name: item.name }));
+}
+
+function listDesa(kecamatanCode) {
+  return data
+    .filter(
+      (item) => item.parts.length === 4 && item.parts[2] === kecamatanCode
+    )
+    .map((item) => ({ code: item.parts[3], name: item.name }));
+}
+
 module.exports = {
   getRegion,
   getProvinsi,
   getKota,
   getKecamatan,
   getDesa,
+  listProvinsi,
+  listKota,
+  listKecamatan,
+  listDesa,
 };
